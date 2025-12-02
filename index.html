@@ -233,6 +233,15 @@
             <textarea name="OneWish" rows="2" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-white focus:border-cyan-500"></textarea>
         </div>
 
+        <!-- NEW EMAIL SECTION -->
+    <div class="mt-6 border-t border-slate-700 pt-6">
+        <label class="block mb-2 text-sm font-bold text-cyan-400">
+            <i class="fa-solid fa-envelope mr-2"></i> Want to see the results? (Optional)
+        </label>
+        <p class="text-xs text-slate-500 mb-2">Leave your email if you'd like updates or beta access.</p>
+        <input type="email" name="UserEmail" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-white placeholder-slate-600" placeholder="name@company.com">
+    </div>
+
         <!-- SUBMIT BUTTON -->
         <div class="mt-8 text-center">
             <button type="submit" id="submitBtn" class="bg-green-600 hover:bg-green-500 text-white px-10 py-3 rounded-lg font-bold transition shadow-lg w-full md:w-auto">Submit Feedback</button>
@@ -256,9 +265,9 @@
         </div>
     </section>
 
- 
- <!-- FOOTER -->
-       <footer class="bg-slate-950 py-10 text-center text-slate-500 text-sm">
+    <!-- FOOTER -->
+   
+    <footer class="bg-slate-950 py-10 text-center text-slate-500 text-sm">
         <div class="flex justify-center items-center gap-2">
             <span>&copy; 2025 AeroSynth Concept Research</span>
             <span class="text-slate-700">|</span>
@@ -267,6 +276,8 @@
             </a>
         </div>
     </footer>
+
+
 
     <!-- LOGIC -->
     <script>
@@ -353,7 +364,7 @@
 
         // --- 3. SUBMISSION LOGIC (Google Apps Script) ---
         // REPLACE THIS URL WITH YOUR DEPLOYED GOOGLE APPS SCRIPT URL
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby9q97abQfx6NFnpEiskHox0_wDVpiyahfXT4WfUHY-DHpGZXXgL0W9Rok_c19K-uMRnA/exec';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwiydZXbq9SOJdma55Bs4FvC4hP1cRaTWnkLzhQXQVv87TYCTpGhhLEMZNp648UxhSBtA/exec';
 
         form.addEventListener('submit', e => {
             e.preventDefault();
@@ -378,7 +389,3 @@
     </script>
 </body>
 </html>
-
-
-
-
