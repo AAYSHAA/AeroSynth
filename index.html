@@ -128,122 +128,122 @@
             <!-- Form Container -->
             <div class="glass-card p-8 md:p-10 rounded-2xl shadow-2xl relative overflow-hidden">
                 <form id="aerosynthForm">
-                    
-                    <!-- STEP 1: ROLE & INTRO -->
-                    <div class="step-content active" id="step1">
-                        <h2 class="text-2xl font-bold mb-2">Let's start with your perspective.</h2>
-                        <p class="text-slate-400 mb-6">This helps me categorize your feedback correctly.</p>
+                    <!-- STEP 1: CONTEXT (New: Added 'InfoType') -->
+    <div class="step-content active" id="step1">
+        <h2 class="text-2xl font-bold mb-2">1. Your Context</h2>
+        <p class="text-slate-400 mb-6">Help me understand your daily work.</p>
 
-                        <label class="block mb-2 text-sm font-bold text-cyan-400">Which best describes your role?</label>
-                        <select name="Role" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-white focus:border-cyan-500 outline-none mb-6">
-                            <option value="Researcher">Aviation Researcher / Academic</option>
-                            <option value="AirlineOps">Airline / Airport Operations</option>
-                            <option value="Sustainability">Sustainability / Compliance</option>
-                            <option value="Analyst">Data Analyst / Enthusiast</option>
-                            <option value="Other">Other</option>
-                        </select>
+        <label class="block mb-2 text-sm font-bold text-cyan-400">Which best describes your role?</label>
+        <select name="Role" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-white mb-6">
+            <option value="Researcher">Aviation Researcher / Academic</option>
+            <option value="AirlineOps">Airline / Airport Operations</option>
+            <option value="Sustainability">Sustainability / Compliance</option>
+            <option value="Analyst">Data Analyst / Enthusiast</option>
+            <option value="Other">Other</option>
+        </select>
 
-                        <label class="block mb-2 text-sm font-bold text-cyan-400">What type of flight data do you deal with most often?</label>
-                        <textarea name="DataTypes" rows="3" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-white focus:border-cyan-500 outline-none placeholder-slate-600" placeholder="e.g., ADS-B, Fuel Logs, Route Plans..."></textarea>
-                    </div>
+        <!-- NEW QUESTION -->
+        <label class="block mb-2 text-sm font-bold text-cyan-400">What flight-related info do you deal with most?</label>
+        <input type="text" name="InfoType" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-white placeholder-slate-600" placeholder="e.g. Fuel logs, ADS-B tracks, Route plans...">
+    </div>
 
-                    <!-- STEP 2: PAIN POINTS -->
-                    <div class="step-content" id="step2">
-                        <h2 class="text-2xl font-bold mb-2">The Problems You Face</h2>
-                        <p class="text-slate-400 mb-6">Where do things currently go wrong?</p>
+    <!-- STEP 2: PAIN POINTS (New: Added 'ManualChecks' & Expanded Checkboxes) -->
+    <div class="step-content" id="step2">
+        <h2 class="text-2xl font-bold mb-2">2. The Pain Points</h2>
+        <p class="text-slate-400 mb-6">Where do things currently go wrong?</p>
 
-                        <div class="mb-6">
-                            <label class="block mb-2 text-sm font-bold text-cyan-400">Are there patterns or irregularities that are easy to miss?</label>
-                            <textarea name="MissedPatterns" rows="3" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-white focus:border-cyan-500 outline-none"></textarea>
-                        </div>
+        <label class="block mb-4 text-sm font-bold text-cyan-400">Which issues are hardest to spot early?</label>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+            <label class="custom-checkbox cursor-pointer relative">
+                <input type="checkbox" name="HardToSpot" value="Fuel" class="hidden">
+                <div class="border border-slate-600 p-3 rounded-lg text-sm text-slate-300 hover:bg-slate-800 transition">⛽ Unusual Fuel Burn</div>
+            </label>
+            <label class="custom-checkbox cursor-pointer relative">
+                <input type="checkbox" name="HardToSpot" value="Route" class="hidden">
+                <div class="border border-slate-600 p-3 rounded-lg text-sm text-slate-300 hover:bg-slate-800 transition">🗺️ Unexpected Route Changes</div>
+            </label>
+            <label class="custom-checkbox cursor-pointer relative">
+                <input type="checkbox" name="HardToSpot" value="Timing" class="hidden">
+                <div class="border border-slate-600 p-3 rounded-lg text-sm text-slate-300 hover:bg-slate-800 transition">⏱️ Timing / Delays</div>
+            </label>
+             <label class="custom-checkbox cursor-pointer relative">
+                <input type="checkbox" name="HardToSpot" value="Patterns" class="hidden">
+                <div class="border border-slate-600 p-3 rounded-lg text-sm text-slate-300 hover:bg-slate-800 transition">📉 Fleet-wide Trends</div>
+            </label>
+        </div>
 
-                        <div class="mb-6">
-                            <label class="block mb-4 text-sm font-bold text-cyan-400">Which issues tend to be noticed too late?</label>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                <label class="custom-checkbox cursor-pointer relative">
-                                    <input type="checkbox" name="LateIssues" value="Fuel" class="hidden">
-                                    <div class="border border-slate-600 p-3 rounded-lg text-sm text-slate-300 hover:bg-slate-800 transition">⛽ Fuel Anomalies</div>
-                                </label>
-                                <label class="custom-checkbox cursor-pointer relative">
-                                    <input type="checkbox" name="LateIssues" value="Route" class="hidden">
-                                    <div class="border border-slate-600 p-3 rounded-lg text-sm text-slate-300 hover:bg-slate-800 transition">🗺️ Route Deviations</div>
-                                </label>
-                                <label class="custom-checkbox cursor-pointer relative">
-                                    <input type="checkbox" name="LateIssues" value="Timing" class="hidden">
-                                    <div class="border border-slate-600 p-3 rounded-lg text-sm text-slate-300 hover:bg-slate-800 transition">⏱️ Timing/Delays</div>
-                                </label>
-                                <label class="custom-checkbox cursor-pointer relative">
-                                    <input type="checkbox" name="LateIssues" value="Compliance" class="hidden">
-                                    <div class="border border-slate-600 p-3 rounded-lg text-sm text-slate-300 hover:bg-slate-800 transition">📜 Compliance Gaps</div>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+        <!-- NEW QUESTION -->
+        <label class="block mb-2 text-sm font-bold text-cyan-400">Is there anything you specifically have to check manually?</label>
+        <textarea name="ManualChecks" rows="2" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-white"></textarea>
+    </div>
 
-                    <!-- STEP 3: SOLUTION & VALUE -->
-                    <div class="step-content" id="step3">
-                        <h2 class="text-2xl font-bold mb-2">Shaping AeroSynth</h2>
-                        <p class="text-slate-400 mb-6">How should this tool work for you?</p>
+    <!-- STEP 3: DATA REALITY (All New Section) -->
+    <div class="step-content" id="step3">
+        <h2 class="text-2xl font-bold mb-2">3. Data Reality</h2>
+        <p class="text-slate-400 mb-6">What data are we actually working with?</p>
 
-                        <div class="mb-6">
-                            <label class="block mb-2 text-sm font-bold text-cyan-400">What specific insight would be most useful?</label>
-                            <select name="UsefulInsight" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-white focus:border-cyan-500 outline-none">
-                                <option value="UnusualFuel">Unusual Fuel Behavior</option>
-                                <option value="RoutePatterns">Unexpected Route Patterns</option>
-                                <option value="ExpectedVsActual">Difference: Expected vs Actual</option>
-                                <option value="FleetTrends">Fleet-wide Trends</option>
-                            </select>
-                        </div>
+        <label class="block mb-2 text-sm font-bold text-cyan-400">Which data sources are "messy" or unreliable for you?</label>
+        <textarea name="MessyData" rows="2" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-white placeholder-slate-600" placeholder="e.g. Public ADS-B, Hand-written logs..."></textarea>
 
-                        <div class="mb-6">
-                            <label class="block mb-2 text-sm font-bold text-cyan-400">Preferred Output Format?</label>
-                            <div class="flex space-x-4">
-                                <label class="flex items-center cursor-pointer">
-                                    <input type="radio" name="OutputFormat" value="Alerts" class="mr-2 accent-cyan-500">
-                                    <span class="text-sm text-slate-300">Quick Alerts</span>
-                                </label>
-                                <label class="flex items-center cursor-pointer">
-                                    <input type="radio" name="OutputFormat" value="Reports" class="mr-2 accent-cyan-500">
-                                    <span class="text-sm text-slate-300">Detailed Reports</span>
-                                </label>
-                                <label class="flex items-center cursor-pointer">
-                                    <input type="radio" name="OutputFormat" value="Graphs" class="mr-2 accent-cyan-500">
-                                    <span class="text-sm text-slate-300">Visual Graphs</span>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div class="mb-2">
-                            <label class="block mb-2 text-sm font-bold text-cyan-400">What is the ONE thing you wish you could predict early?</label>
-                            <textarea name="OneWish" rows="2" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-white focus:border-cyan-500 outline-none"></textarea>
-                        </div>
-                    </div>
+        <div class="mt-4">
+            <label class="block mb-2 text-sm font-bold text-cyan-400">What detail level do you need?</label>
+            <div class="flex gap-4">
+                <label class="flex items-center"><input type="radio" name="DetailLevel" value="FlightLevel" class="mr-2 accent-cyan-500"> Per-Flight</label>
+                <label class="flex items-center"><input type="radio" name="DetailLevel" value="FleetLevel" class="mr-2 accent-cyan-500"> Fleet Overview</label>
+            </div>
+        </div>
+    </div>
 
-                    <!-- STEP 4: SUBMIT -->
-                    <div class="step-content text-center" id="step4">
-                        <div class="mb-6">
-                            <div class="w-20 h-20 bg-cyan-900/50 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl text-cyan-400">
-                                <i class="fa-solid fa-paper-plane"></i>
-                            </div>
-                            <h2 class="text-2xl font-bold mb-2">Ready to send?</h2>
-                            <p class="text-slate-400">Your feedback is anonymous and directly shapes the AeroSynth prototype.</p>
-                        </div>
-                        
-                        <div class="bg-slate-900/50 p-4 rounded-lg text-left text-sm text-slate-400 mb-6 border border-slate-700">
-                            <p class="mb-2"><strong>You shared:</strong></p>
-                            <ul class="list-disc list-inside" id="summaryList">
-                                <!-- JS will fill this -->
-                            </ul>
-                        </div>
-                    </div>
+    <!-- STEP 4: DESIGNING AEROSYNTH (All New Section) -->
+    <div class="step-content" id="step4">
+        <h2 class="text-2xl font-bold mb-2">4. Designing AeroSynth</h2>
+        <p class="text-slate-400 mb-6">How should the tool interact with you?</p>
 
-                    <!-- NAVIGATION BUTTONS -->
-                    <div class="flex justify-between mt-8 pt-6 border-t border-slate-700">
-                        <button type="button" id="prevBtn" class="px-6 py-2 rounded-lg text-slate-400 hover:text-white font-bold hidden transition">Back</button>
-                        <button type="button" id="nextBtn" class="bg-cyan-600 hover:bg-cyan-500 text-white px-8 py-2 rounded-lg font-bold transition shadow-lg ml-auto">Next</button>
-                        <button type="submit" id="submitBtn" class="bg-green-600 hover:bg-green-500 text-white px-8 py-2 rounded-lg font-bold transition shadow-lg ml-auto hidden">Submit Feedback</button>
-                    </div>
+        <label class="block mb-2 text-sm font-bold text-cyan-400">How should it handle anomalies?</label>
+        <div class="space-y-3 mb-6">
+            <label class="cursor-pointer relative block">
+                <input type="radio" name="BotBehavior" value="HighlightOnly" class="mr-2 accent-cyan-500">
+                <span class="text-sm text-slate-300">Just highlight the issue (Don't guess why)</span>
+            </label>
+            <label class="cursor-pointer relative block">
+                <input type="radio" name="BotBehavior" value="SuggestReasons" class="mr-2 accent-cyan-500">
+                <span class="text-sm text-slate-300">Suggest possible reasons (e.g., "Likely weather related")</span>
+            </label>
+            <label class="cursor-pointer relative block">
+                <input type="radio" name="BotBehavior" value="RecommendAction" class="mr-2 accent-cyan-500">
+                <span class="text-sm text-slate-300">Give recommendations on what to do next</span>
+            </label>
+        </div>
 
+        <label class="block mb-2 text-sm font-bold text-cyan-400">What output format is useless to you?</label>
+        <input type="text" name="UselessOutput" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-white placeholder-slate-600" placeholder="e.g. Raw JSON, hourly emails...">
+    </div>
+
+    <!-- STEP 5: TRUST & NOVELTY (Updated) -->
+    <div class="step-content" id="step5">
+        <h2 class="text-2xl font-bold mb-2">5. Trust & Novelty</h2>
+        <p class="text-slate-400 mb-6">Making it worth using.</p>
+
+        <!-- NEW QUESTION -->
+        <label class="block mb-2 text-sm font-bold text-cyan-400">What concerns would stop you from trusting this tool?</label>
+        <textarea name="TrustIssues" rows="2" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-white placeholder-slate-600" placeholder="e.g. Accuracy, False alarms, Data privacy..."></textarea>
+
+        <div class="mt-4">
+            <label class="block mb-2 text-sm font-bold text-cyan-400">The "One Wish": What flight insight do you wish existed?</label>
+            <textarea name="OneWish" rows="2" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-white focus:border-cyan-500"></textarea>
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+        <div class="mt-8 text-center">
+            <button type="submit" id="submitBtn" class="bg-green-600 hover:bg-green-500 text-white px-10 py-3 rounded-lg font-bold transition shadow-lg w-full md:w-auto">Submit Feedback</button>
+        </div>
+    </div>
+
+    <!-- NAVIGATION BUTTONS -->
+    <div class="flex justify-between mt-8 pt-6 border-t border-slate-700">
+        <button type="button" id="prevBtn" class="px-6 py-2 rounded-lg text-slate-400 hover:text-white font-bold hidden transition">Back</button>
+        <button type="button" id="nextBtn" class="bg-cyan-600 hover:bg-cyan-500 text-white px-8 py-2 rounded-lg font-bold ml-auto transition">Next</button>
+    </div>
                 </form>
                 
                 <!-- Success Message (Hidden by default) -->
@@ -301,7 +301,7 @@
 
         // --- 2. MULTI-STEP FORM LOGIC ---
         let currentStep = 1;
-        const totalSteps = 4;
+        const totalSteps = 5;
         const form = document.getElementById('aerosynthForm');
         
         const nextBtn = document.getElementById('nextBtn');
@@ -346,7 +346,7 @@
 
         // --- 3. SUBMISSION LOGIC (Google Apps Script) ---
         // REPLACE THIS URL WITH YOUR DEPLOYED GOOGLE APPS SCRIPT URL
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzvNaR8P5q6dx5MO6W8emYiAEg49GDRU6TuzrLnBlujpWYTKAPT9uh8hMwRjfSp4s-kWw/exec';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby9q97abQfx6NFnpEiskHox0_wDVpiyahfXT4WfUHY-DHpGZXXgL0W9Rok_c19K-uMRnA/exec';
 
         form.addEventListener('submit', e => {
             e.preventDefault();
